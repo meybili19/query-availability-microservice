@@ -14,8 +14,8 @@ func main() {
 	config.ConnectDB()
 
 	router := mux.NewRouter()
-	router.HandleFunc("/webhook/availability", controllers.CheckAvailability).Methods("POST")
+	router.HandleFunc("/parkinglot/capacity/{id}", controllers.GetParkingCapacity).Methods("GET")
 
 	log.Println("Server running on port 8080")
-	http.ListenAndServe(":8080", router)
+	http.ListenAndServe(":6005", router)
 }
