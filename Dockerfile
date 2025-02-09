@@ -3,18 +3,17 @@ FROM golang:1.23 AS builder
 WORKDIR /app
 
 COPY go.mod go.sum ./
-
 RUN go mod tidy
 
 COPY . .
 
-RUN go build -o main .
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o main .
 
-FROM ubuntu:latest
+FROM alpine:latest
 
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y libc6
+RUN apk add --no-cache libc6-compat
 
 COPY --from=builder /app/main .
 
