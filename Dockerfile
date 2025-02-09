@@ -1,22 +1,15 @@
-FROM golang:1.23 AS builder
+FROM golang:1.23
+
 
 WORKDIR /app
 
-COPY go.mod go.sum ./
-RUN go mod tidy
 
 COPY . .
 
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o main .
+RUN go mod tidy
 
-FROM alpine:latest
-
-WORKDIR /app
-
-RUN apk add --no-cache libc6-compat
-
-COPY --from=builder /app/main .
+RUN go build -o main .
 
 EXPOSE 6005
 
-CMD ["./main"]
+CMD [ "./main" ]
