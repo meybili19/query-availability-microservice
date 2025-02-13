@@ -53,7 +53,7 @@ jobs:
               -e DB_SERVER=${{ secrets.DB_SERVER_M }} \
               -e DB_NAME=${{ secrets.DB_NAME_M }} \
               -e PARKINGLOT_SERVICE_URL=${{ secrets.PARKINGLOT_SERVICE_URL_M }} \
-              -p 6005:6005 \
+              -p 7004:7004 \
               ${{ secrets.DOCKER_USERNAME }}/query_availability_microservice_image:latest
 
             echo "✅ Despliegue completado con éxito."
