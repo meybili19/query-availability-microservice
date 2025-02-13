@@ -12,4 +12,5 @@ RUN go build -o main .
 
 EXPOSE 7004
 
-CMD [ "./main" ]
+CMD ["go", "run", "main.go"]
+
