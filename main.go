@@ -23,6 +23,6 @@ func main() {
 		handlers.AllowedHeaders([]string{"Content-Type", "Authorization"}),           // Headers permitidos
 	)
 
-	log.Println("🚀 Server running on 0.0.0.0:7004")
+	log.Println("🚀 -Server running on 0.0.0.0:7004")
 	http.ListenAndServe("0.0.0.0:7004", corsHandler(router))
 }
