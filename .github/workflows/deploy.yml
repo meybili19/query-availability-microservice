@@ -48,11 +48,11 @@ jobs:
             # Ejecutar el nuevo contenedor con las variables de entorno
             echo "🚀 Ejecutando nuevo contenedor..."
             sudo docker run -d --name query_availability_microservice_container \
-              --e DB_USER=${{ secrets.DB_USER_M }} \
-              --e DB_PASSWORD=${{ secrets.DB_PASSWORD_M }} \
-              --e DB_SERVER=${{ secrets.DB_SERVER_M }} \
-              --e DB_NAME=${{ secrets.DB_NAME_M }} \
-              --e PARKINGLOT_SERVICE_URL=${{ secrets.PARKINGLOT_SERVICE_URL_M }} \
+              -e DB_USER=${{ secrets.DB_USER_M }} \
+              -e DB_PASSWORD=${{ secrets.DB_PASSWORD_M }} \
+              -e DB_SERVER=${{ secrets.DB_SERVER_M }} \
+              -e DB_NAME=${{ secrets.DB_NAME_M }} \
+              -e PARKINGLOT_SERVICE_URL=${{ secrets.PARKINGLOT_SERVICE_URL_M }} \
               -p 7004:7004 \
               ${{ secrets.DOCKER_USERNAME }}/query_availability_microservice_image:latest
 
