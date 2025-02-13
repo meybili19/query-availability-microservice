@@ -15,6 +15,6 @@ func main() {
 	router := mux.NewRouter()
 	router.HandleFunc("/parkinglot/capacity/{id}", controllers.GetParkingCapacity).Methods("GET")
 
-	log.Println("🚀 Server running on port 6005")
+	log.Println("🚀 Server running on port 7004")
 	http.ListenAndServe(":7004", router)
 }
