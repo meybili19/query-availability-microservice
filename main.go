@@ -16,5 +16,5 @@ func main() {
 	router.HandleFunc("/parkinglot/capacity/{id}", controllers.GetParkingCapacity).Methods("GET")
 
 	log.Println("🚀 Server running on port 6005")
-	http.ListenAndServe(":6005", router)
+	http.ListenAndServe(":7004", router)
 }
