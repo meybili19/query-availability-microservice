@@ -10,6 +10,6 @@ RUN go mod tidy
 
 RUN go build -o main .
 
-EXPOSE 6005
+EXPOSE 7004
 
 CMD [ "./main" ]
